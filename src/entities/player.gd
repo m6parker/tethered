@@ -46,7 +46,7 @@ func _physics_process(delta: float) -> void:
 		suffocation_timer += delta
 		if suffocation_timer >= suffocation_interval:
 			suffocation_timer = 0.0
-			Globals.remove_health(5) # dammage amount
+			Globals.remove_health(1) # dammage amount
 	else:
 		# reset time if oxygen is found
 		suffocation_timer = 0.0

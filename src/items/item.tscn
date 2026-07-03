@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://5wxccyrdl8xv"]
 
-[ext_resource type="Script" uid="uid://upo5f63d5uh0" path="res://src/items/oxygen.gd" id="1_j3mkc"]
+[ext_resource type="Script" uid="uid://upo5f63d5uh0" path="res://src/items/item.gd" id="1_j3mkc"]
 [ext_resource type="Texture2D" uid="uid://cak5tjjc2bcfs" path="res://assets/items/oxygen.png" id="1_skgxn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j3mkc"]
 size = Vector2(32, 32)
 
-[node name="oxygen" type="Area2D" unique_id=1862983925]
+[node name="item" type="Area2D" unique_id=1862983925]
 script = ExtResource("1_j3mkc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=313912552]

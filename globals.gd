@@ -21,9 +21,13 @@ func remove_oxygen():
 		oxygen_changed.emit()
 
 func add_health(amount: int):
-	health = health + amount
+	var new_health = health + amount
+	if new_health > 100:
+		health = 100
+	else:
+		health = health + amount
 	health_changed.emit()
-	
+
 func remove_health(amount: int):
 	if health < 1:
 		reset_game()
@@ -37,8 +41,11 @@ func reset_game():
 	health = 100
 	get_tree().reload_current_scene()
 	
-func collect_item() -> void:
-	add_oxygen(10)
+func collect_item(item_type: String) -> void:
+	if item_type == "oxygen":
+		add_oxygen(10)
+	elif item_type == "health":
+		add_health(5)
 
 # automatically called
 func _on_oxygen_changed():
@@ -46,4 +53,5 @@ func _on_oxygen_changed():
 	pass
 
 func _on_health_changed():
+	# todo - sound effects
 	pass

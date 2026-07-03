@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://burfrn7bqgt15"]
 
 [ext_resource type="Texture2D" uid="uid://bekw5aj7h2iic" path="res://assets/tilesets/side_scroll_tileset_one.png" id="1_4xf3m"]
-[ext_resource type="PackedScene" uid="uid://5wxccyrdl8xv" path="res://src/items/oxygen.tscn" id="2_1ycqk"]
+[ext_resource type="PackedScene" uid="uid://5wxccyrdl8xv" path="res://src/items/item.tscn" id="2_1ycqk"]
 [ext_resource type="PackedScene" uid="uid://dcyjqy6yowgja" path="res://src/entities/player.tscn" id="2_4xf3m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4xf3m"]
@@ -98,11 +98,13 @@ tile_set = SubResource("TileSet_1ycqk")
 [node name="items" type="TileMapLayer" parent="map" unique_id=170210139]
 tile_set = SubResource("TileSet_1ycqk")
 
-[node name="oxygen" parent="map/items" unique_id=49752568 instance=ExtResource("2_1ycqk")]
-position = Vector2(539, 560)
+[node name="item" parent="map/items" unique_id=1862983925 instance=ExtResource("2_1ycqk")]
+position = Vector2(485, 512)
+item_type = "oxygen"
 
-[node name="oxygen2" parent="map/items" unique_id=1862983925 instance=ExtResource("2_1ycqk")]
-position = Vector2(502, 214)
+[node name="item2" parent="map/items" unique_id=839840248 instance=ExtResource("2_1ycqk")]
+position = Vector2(699, 398)
+item_type = "health"
 
 [node name="Player" parent="." unique_id=1678218356 instance=ExtResource("2_4xf3m")]
 position = Vector2(75, 408)
