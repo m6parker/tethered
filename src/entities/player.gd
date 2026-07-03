@@ -1,64 +1,58 @@
 extends CharacterBody2D
 
-# pulls player up to ceiling when close
-@export var ceiling_magnet_force: float = 120.0 
-@export var floaty_gravity_scale: float = 0.15
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var ceiling_detector: RayCast2D = $ceiling_detector
-@onready var collection_area: Area2D = $collection_area
-const SPEED = 200.0
-const JUMP_VELOCITY = 200.0
 
+@export var thrust_power: float = 400.0 # how fast player can move
+@export var max_speed: float = 300.0 # prevent from going too fast
+@export var brake_power: float = 5.0 # how fast to slow down
+@export var oxygen_depletion_interval: float = 0.2 # amount of oxygen lost every 0.2 seconds of movement
+@export var suffocation_interval: float = 1.0 # how fast damage is taken
+
+var oxygen_timer: float = 0.0
+var suffocation_timer: float = 0.0
 
 func _physics_process(delta: float) -> void:
-	up_direction = Vector2.UP
-
-	# flip the player sprite depending on the direction
-	var direction := Input.get_axis("left", "right")
-	if not is_on_floor() and not is_on_ceiling() and velocity.y <= 50.0:
-		if ceiling_detector.is_colliding():
-			velocity.y = -ceiling_magnet_force
-
-	# flip the player sprite depending on the surface
-	if is_on_floor() or is_on_ceiling():
-		if is_on_ceiling():
-			animated_sprite.flip_v = true
-		else:
-			animated_sprite.flip_v = false
+	var input_vector := Vector2.ZERO
+	input_vector.x = Input.get_axis("left", "right")
+	input_vector.y = Input.get_axis("up", "down")
+	
+	# movement
+	if input_vector != Vector2.ZERO:
+		input_vector = input_vector.normalized()
+		
+		# movement
+		velocity += input_vector * thrust_power * delta
+		velocity = velocity.limit_length(max_speed)
+		
+		# flip sprite
+		animated_sprite.play("run")
+		animated_sprite.flip_h = (velocity.x < 0)
+		
+		# lose oxygen ONLY when moving
+		oxygen_timer += delta
+		if oxygen_timer >= oxygen_depletion_interval:
+			oxygen_timer = 0.0
+			Globals.remove_oxygen()
 			
-		if direction:
-			velocity.x = direction * SPEED
-			animated_sprite.flip_h = (direction < 0)
-			animated_sprite.play("run")
-		else:
-			velocity.x = move_toward(velocity.x, 0, SPEED * delta * 10)
-			animated_sprite.play("idle")
 	else:
-		# floating
-		velocity += get_gravity() * floaty_gravity_scale * delta
-		
-		animated_sprite.flip_v = false 
-		
-		if velocity.x != 0:
-			animated_sprite.flip_h = (velocity.x < 0)
-			
-		#todo - jump and fall
-		if velocity.y < 0:
-			animated_sprite.play("run")
+		# movement doesnt stop in space
+		if velocity.length() > 5:
+			animated_sprite.play("idle")
 		else:
+			# todo - drift animation
 			animated_sprite.play("idle")
 
-	# jump
-	if Input.is_action_just_pressed("jump"):
-		if is_on_floor():
-			velocity = Vector2(0, -JUMP_VELOCITY)
-		elif is_on_ceiling():
-			velocity = Vector2(0, JUMP_VELOCITY + 50.0)
-		elif is_on_wall():
-			var wall_normal = get_wall_normal()
-			velocity = Vector2(wall_normal.x * JUMP_VELOCITY, -JUMP_VELOCITY * 0.5)
+	if Globals.oxygen <= 0:
+		suffocation_timer += delta
+		if suffocation_timer >= suffocation_interval:
+			suffocation_timer = 0.0
+			Globals.remove_health(5) # dammage amount
+	else:
+		# reset time if oxygen is found
+		suffocation_timer = 0.0
 
 	move_and_slide()
 	
+	# reset game
 	if Input.is_action_just_pressed("menu"):
 		Globals.reset_game()

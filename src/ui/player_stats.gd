@@ -1,15 +1,23 @@
 extends CanvasLayer
 
-@onready var oxygen_label: Label = $oxygen_amount 
+@onready var oxygen_label: Label = $oxygen_amount
+@onready var health_label: Label = $health_amount
 
 func _ready() -> void:
-	# listen for signal from globals
-	Globals.item_pickup.connect(_on_global_item_pickup)
+	Globals.oxygen_changed.connect(_on_oxygen_changed)
+	Globals.health_changed.connect(_on_health_changed)
 	update_ui()
 
-func _on_global_item_pickup() -> void:
+func _on_oxygen_changed() -> void:
+	await get_tree().process_frame 
+	update_ui()
+	
+func _on_health_changed() -> void:
+	await get_tree().process_frame 
 	update_ui()
 
 func update_ui() -> void:
 	if oxygen_label:
 		oxygen_label.text = str(Globals.oxygen)
+	if health_label:
+		health_label.text = str(Globals.health)

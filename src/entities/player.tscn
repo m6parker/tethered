@@ -93,7 +93,7 @@ position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_3glep")
 
 [node name="ceiling_detector" type="RayCast2D" parent="." unique_id=21245900]
-target_position = Vector2(0, -20)
+target_position = Vector2(0, -30)
 
 [node name="player_stats" parent="." unique_id=965129902 instance=ExtResource("4_lqcqj")]
 

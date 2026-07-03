@@ -18,3 +18,18 @@ offset_right = 282.0
 offset_bottom = 71.0
 theme_override_font_sizes/font_size = 50
 text = "100"
+
+[node name="Label2" type="Label" parent="." unique_id=1527999639]
+offset_top = 70.0
+offset_right = 187.0
+offset_bottom = 139.0
+theme_override_font_sizes/font_size = 50
+text = "health:"
+
+[node name="health_amount" type="Label" parent="." unique_id=1266247191]
+offset_left = 196.0
+offset_top = 72.0
+offset_right = 282.0
+offset_bottom = 141.0
+theme_override_font_sizes/font_size = 50
+text = "100"

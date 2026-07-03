@@ -101,6 +101,9 @@ tile_set = SubResource("TileSet_1ycqk")
 [node name="oxygen" parent="map/items" unique_id=49752568 instance=ExtResource("2_1ycqk")]
 position = Vector2(539, 560)
 
+[node name="oxygen2" parent="map/items" unique_id=1862983925 instance=ExtResource("2_1ycqk")]
+position = Vector2(502, 214)
+
 [node name="Player" parent="." unique_id=1678218356 instance=ExtResource("2_4xf3m")]
 position = Vector2(75, 408)
 

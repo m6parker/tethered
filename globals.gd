@@ -1,45 +1,49 @@
 extends Node
 
-var oxygen: int = 50
-var health: int
+var oxygen: int = 10
+var health: int = 100
 var current_level: String
-@onready var oxygen_amount: Label = $oxygen_amount
-signal item_pickup
+signal oxygen_changed 
+signal health_changed
 
 func _ready():
-	item_pickup.connect(_on_item_pickup)
+	oxygen_changed.connect(_on_oxygen_changed)
+	health_changed.connect(_on_health_changed)
 
-func update_oxygen_ui():
-	if oxygen_amount:
-		oxygen_amount.text = str(oxygen)
-	
-func add_oxygen():
+func add_oxygen(pack_size: int):
 	if oxygen < 100:
-		oxygen = oxygen + 1
-		update_oxygen_ui()
+		oxygen = oxygen + pack_size
+		oxygen_changed.emit()
 	
 func remove_oxygen():
-	oxygen = oxygen - 1
-	update_oxygen_ui()
-	if oxygen < 1:
-		reset_game()
+	if oxygen > 0:
+		oxygen = oxygen - 1
+		oxygen_changed.emit()
 
 func add_health(amount: int):
 	health = health + amount
+	health_changed.emit()
 	
 func remove_health(amount: int):
-	health = health - amount
+	if health < 1:
+		reset_game()
+	else:
+		health = health - amount
+		health_changed.emit()
 
 func reset_game():
 	current_level = "world_one"
 	oxygen = 50
 	health = 100
-	update_oxygen_ui()
 	get_tree().reload_current_scene()
 	
 func collect_item() -> void:
-	item_pickup.emit()
+	add_oxygen(10)
 
-# automattically called
-func _on_item_pickup():
-	add_oxygen()
+# automatically called
+func _on_oxygen_changed():
+	# todo - sound of oxygen added or removed
+	pass
+
+func _on_health_changed():
+	pass
