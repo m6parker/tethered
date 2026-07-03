@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://b3ncs03taxxl7"]
+
+[ext_resource type="Script" uid="uid://cg74ryso3q63a" path="res://src/ui/player_stats.gd" id="1_ogo65"]
+
+[node name="player_stats" type="CanvasLayer" unique_id=1883993902]
+script = ExtResource("1_ogo65")
+
+[node name="Label" type="Label" parent="." unique_id=1060748912]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 50
+text = "oxygen:"
+
+[node name="oxygen_amount" type="Label" parent="." unique_id=1399171199]
+offset_left = 196.0
+offset_top = 2.0
+offset_right = 282.0
+offset_bottom = 71.0
+theme_override_font_sizes/font_size = 50
+text = "100"

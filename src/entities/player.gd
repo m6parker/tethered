@@ -5,8 +5,10 @@ extends CharacterBody2D
 @export var floaty_gravity_scale: float = 0.15
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var ceiling_detector: RayCast2D = $ceiling_detector
+@onready var collection_area: Area2D = $collection_area
 const SPEED = 200.0
-const JUMP_VELOCITY = 200.0 
+const JUMP_VELOCITY = 200.0
+
 
 func _physics_process(delta: float) -> void:
 	up_direction = Vector2.UP
@@ -57,3 +59,6 @@ func _physics_process(delta: float) -> void:
 			velocity = Vector2(wall_normal.x * JUMP_VELOCITY, -JUMP_VELOCITY * 0.5)
 
 	move_and_slide()
+	
+	if Input.is_action_just_pressed("menu"):
+		Globals.reset_game()

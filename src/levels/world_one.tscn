@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://burfrn7bqgt15"]
 
 [ext_resource type="Texture2D" uid="uid://bekw5aj7h2iic" path="res://assets/tilesets/side_scroll_tileset_one.png" id="1_4xf3m"]
+[ext_resource type="PackedScene" uid="uid://5wxccyrdl8xv" path="res://src/items/oxygen.tscn" id="2_1ycqk"]
 [ext_resource type="PackedScene" uid="uid://dcyjqy6yowgja" path="res://src/entities/player.tscn" id="2_4xf3m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4xf3m"]
@@ -82,7 +83,6 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_4xf3m")
 
 [node name="world_one" type="Node2D" unique_id=1368521841]
-position = Vector2(0, 1)
 
 [node name="map" type="Node2D" parent="." unique_id=2130805985]
 texture_filter = 1
@@ -97,6 +97,9 @@ tile_set = SubResource("TileSet_1ycqk")
 
 [node name="items" type="TileMapLayer" parent="map" unique_id=170210139]
 tile_set = SubResource("TileSet_1ycqk")
+
+[node name="oxygen" parent="map/items" unique_id=49752568 instance=ExtResource("2_1ycqk")]
+position = Vector2(539, 560)
 
 [node name="Player" parent="." unique_id=1678218356 instance=ExtResource("2_4xf3m")]
 position = Vector2(75, 408)

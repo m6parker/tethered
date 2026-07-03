@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cjyl3wfo7pu1v" path="res://assets/sprites/idle.png" id="1_3glep"]
 [ext_resource type="Script" uid="uid://b85jvjq75m53x" path="res://src/entities/player.gd" id="1_o5qvw"]
 [ext_resource type="Texture2D" uid="uid://dwd4gxwql7w0p" path="res://assets/sprites/run.png" id="2_o5qvw"]
+[ext_resource type="PackedScene" uid="uid://b3ncs03taxxl7" path="res://src/ui/player_stats.tscn" id="4_lqcqj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lqcqj"]
 atlas = ExtResource("1_3glep")
@@ -76,6 +77,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3glep"]
 size = Vector2(11, 15)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_lqcqj"]
+radius = 13.0
+
 [node name="Player" type="CharacterBody2D" unique_id=1678218356]
 script = ExtResource("1_o5qvw")
 
@@ -90,3 +94,10 @@ shape = SubResource("RectangleShape2D_3glep")
 
 [node name="ceiling_detector" type="RayCast2D" parent="." unique_id=21245900]
 target_position = Vector2(0, -20)
+
+[node name="player_stats" parent="." unique_id=965129902 instance=ExtResource("4_lqcqj")]
+
+[node name="collection_area" type="Area2D" parent="." unique_id=38493254]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collection_area" unique_id=286265511]
+shape = SubResource("CircleShape2D_lqcqj")
