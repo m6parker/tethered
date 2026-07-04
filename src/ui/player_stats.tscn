@@ -33,3 +33,18 @@ offset_right = 282.0
 offset_bottom = 141.0
 theme_override_font_sizes/font_size = 50
 text = "100"
+
+[node name="Label3" type="Label" parent="." unique_id=1002095310]
+offset_top = 132.0
+offset_right = 187.0
+offset_bottom = 201.0
+theme_override_font_sizes/font_size = 50
+text = "fuel:"
+
+[node name="fuel_amount" type="Label" parent="." unique_id=1385438505]
+offset_left = 196.0
+offset_top = 134.0
+offset_right = 282.0
+offset_bottom = 203.0
+theme_override_font_sizes/font_size = 50
+text = "100"

@@ -99,13 +99,17 @@ tile_set = SubResource("TileSet_1ycqk")
 [node name="items" type="TileMapLayer" parent="map" unique_id=170210139]
 tile_set = SubResource("TileSet_1ycqk")
 
-[node name="item" parent="map/items" unique_id=1862983925 instance=ExtResource("2_1ycqk")]
+[node name="oxygen_pack" parent="map/items" unique_id=1862983925 instance=ExtResource("2_1ycqk")]
 position = Vector2(485, 512)
 item_type = "oxygen"
 
-[node name="item2" parent="map/items" unique_id=839840248 instance=ExtResource("2_1ycqk")]
+[node name="health_pack" parent="map/items" unique_id=839840248 instance=ExtResource("2_1ycqk")]
 position = Vector2(699, 398)
 item_type = "health"
+
+[node name="fuel_pack" parent="map/items" unique_id=659175817 instance=ExtResource("2_1ycqk")]
+position = Vector2(493, 212)
+item_type = "fuel"
 
 [node name="TextureRect" type="TextureRect" parent="map/items" unique_id=1472886645]
 offset_left = 192.0

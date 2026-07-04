@@ -1,11 +1,13 @@
 extends Node
 
 var oxygen: int = 10
+var fuel: int = 10
 var health: int = 100
 var thrust_power = 400.0
 var current_level: String
 signal oxygen_changed 
 signal health_changed
+signal fuel_changed
 
 func _ready():
 	oxygen_changed.connect(_on_oxygen_changed)
@@ -20,6 +22,16 @@ func remove_oxygen():
 	if oxygen > 0:
 		oxygen = oxygen - 1
 		oxygen_changed.emit()
+		
+func add_fuel(pack_size: int):
+	if fuel < 100:
+		fuel = fuel + pack_size
+		fuel_changed.emit()
+	
+func remove_fuel():
+	if fuel > 0:
+		fuel = fuel - 1
+		fuel_changed.emit()
 
 func add_health(amount: int):
 	var new_health = health + amount
@@ -40,11 +52,14 @@ func reset_game():
 	current_level = "world_one"
 	oxygen = 50
 	health = 100
+	fuel = 50
 	get_tree().reload_current_scene()
 	
 func collect_item(item_type: String) -> void:
 	if item_type == "oxygen":
 		add_oxygen(10)
+	elif item_type == "fuel":
+		add_fuel(10)
 	elif item_type == "health":
 		add_health(5)
 
@@ -54,5 +69,9 @@ func _on_oxygen_changed():
 	pass
 
 func _on_health_changed():
+	# todo - sound effects
+	pass
+	
+func _on_fuel_changed():
 	# todo - sound effects
 	pass
