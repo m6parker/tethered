@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bekw5aj7h2iic" path="res://assets/tilesets/side_scroll_tileset_one.png" id="1_4xf3m"]
 [ext_resource type="PackedScene" uid="uid://5wxccyrdl8xv" path="res://src/items/item.tscn" id="2_1ycqk"]
 [ext_resource type="PackedScene" uid="uid://dcyjqy6yowgja" path="res://src/entities/player.tscn" id="2_4xf3m"]
+[ext_resource type="Texture2D" uid="uid://dcq4fjv4w4ojj" path="res://assets/tilesets/cobblestone_tile.png" id="3_yhkd1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4xf3m"]
 texture = ExtResource("1_4xf3m")
@@ -105,6 +106,14 @@ item_type = "oxygen"
 [node name="item2" parent="map/items" unique_id=839840248 instance=ExtResource("2_1ycqk")]
 position = Vector2(699, 398)
 item_type = "health"
+
+[node name="TextureRect" type="TextureRect" parent="map/items" unique_id=1472886645]
+offset_left = 192.0
+offset_top = 224.0
+offset_right = 320.0
+offset_bottom = 320.0
+texture = ExtResource("3_yhkd1")
+stretch_mode = 1
 
 [node name="Player" parent="." unique_id=1678218356 instance=ExtResource("2_4xf3m")]
 position = Vector2(75, 408)

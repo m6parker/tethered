@@ -80,6 +80,10 @@ size = Vector2(11, 15)
 [sub_resource type="CircleShape2D" id="CircleShape2D_lqcqj"]
 radius = 13.0
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ms0oa"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+
 [node name="Player" type="CharacterBody2D" unique_id=1678218356]
 script = ExtResource("1_o5qvw")
 
@@ -101,3 +105,8 @@ target_position = Vector2(0, -30)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="collection_area" unique_id=286265511]
 shape = SubResource("CircleShape2D_lqcqj")
+
+[node name="jetpack" type="GPUParticles2D" parent="." unique_id=465264942]
+emitting = false
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_ms0oa")

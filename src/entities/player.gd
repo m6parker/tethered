@@ -1,8 +1,9 @@
 extends CharacterBody2D
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var jetpack: GPUParticles2D = $jetpack
 
-@export var thrust_power: float = 400.0 # how fast player can move
+@export var thrust_power: float = Globals.thrust_power # how fast player can move
 @export var max_speed: float = 300.0 # prevent from going too fast
 @export var brake_power: float = 5.0 # how fast to slow down
 @export var oxygen_depletion_interval: float = 0.2 # amount of oxygen lost every 0.2 seconds of movement
@@ -18,6 +19,9 @@ func _physics_process(delta: float) -> void:
 	
 	# movement
 	if input_vector != Vector2.ZERO:
+		# jetpack is on
+		jetpack.emitting = true
+		
 		input_vector = input_vector.normalized()
 		
 		# movement
@@ -35,6 +39,9 @@ func _physics_process(delta: float) -> void:
 			Globals.remove_oxygen()
 			
 	else:
+		# jetpack is off
+		jetpack.emitting = false
+		
 		# movement doesnt stop in space
 		if velocity.length() > 5:
 			animated_sprite.play("idle")

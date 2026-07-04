@@ -2,6 +2,7 @@ extends Node
 
 var oxygen: int = 10
 var health: int = 100
+var thrust_power = 400.0
 var current_level: String
 signal oxygen_changed 
 signal health_changed
