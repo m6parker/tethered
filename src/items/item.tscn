@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://5wxccyrdl8xv"]
 
 [ext_resource type="Script" uid="uid://upo5f63d5uh0" path="res://src/items/item.gd" id="1_j3mkc"]
-[ext_resource type="Texture2D" uid="uid://cak5tjjc2bcfs" path="res://assets/items/oxygen.png" id="1_skgxn"]
+[ext_resource type="Texture2D" uid="uid://cvhon0cnqdu7g" path="res://assets/items/health.png" id="2_fhx2i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j3mkc"]
 size = Vector2(32, 32)
@@ -14,6 +14,8 @@ shape = SubResource("RectangleShape2D_j3mkc")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=250352837]
 texture_filter = 1
-texture = ExtResource("1_skgxn")
+position = Vector2(-9.536743e-07, 1.000001)
+scale = Vector2(0.057870876, 0.057870876)
+texture = ExtResource("2_fhx2i")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
