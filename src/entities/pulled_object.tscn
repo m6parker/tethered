@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://b4vgpq5dhu0bc"]
+
+[ext_resource type="Texture2D" uid="uid://cak5tjjc2bcfs" path="res://assets/items/oxygen.png" id="1_y0coh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y0coh"]
+radius = 15.0
+
+[node name="pulled_object" type="CharacterBody2D" unique_id=881240779]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1447795933]
+position = Vector2(2.9999695, -0.99998474)
+scale = Vector2(0.13605443, 0.13605443)
+texture = ExtResource("1_y0coh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=293010786]
+shape = SubResource("CircleShape2D_y0coh")

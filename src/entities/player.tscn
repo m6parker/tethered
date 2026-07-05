@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://b85jvjq75m53x" path="res://src/entities/player.gd" id="1_o5qvw"]
 [ext_resource type="Texture2D" uid="uid://dwd4gxwql7w0p" path="res://assets/sprites/run.png" id="2_o5qvw"]
 [ext_resource type="PackedScene" uid="uid://b3ncs03taxxl7" path="res://src/ui/player_stats.tscn" id="4_lqcqj"]
+[ext_resource type="Texture2D" uid="uid://l14hnt7hnycx" path="res://assets/items/rope_segment.png" id="5_s0nk1"]
+[ext_resource type="PackedScene" uid="uid://b4vgpq5dhu0bc" path="res://src/entities/pulled_object.tscn" id="6_ms0oa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lqcqj"]
 atlas = ExtResource("1_3glep")
@@ -84,8 +86,9 @@ radius = 13.0
 particle_flag_disable_z = true
 gravity = Vector3(0, 98, 0)
 
-[node name="Player" type="CharacterBody2D" unique_id=1678218356]
+[node name="Player" type="CharacterBody2D" unique_id=1678218356 node_paths=PackedStringArray("dragged_object")]
 script = ExtResource("1_o5qvw")
+dragged_object = NodePath("pulled_object")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1266801689]
 texture_filter = 1
@@ -110,3 +113,10 @@ shape = SubResource("CircleShape2D_lqcqj")
 emitting = false
 amount = 10
 process_material = SubResource("ParticleProcessMaterial_ms0oa")
+
+[node name="rope" type="Line2D" parent="." unique_id=1230604228]
+width = 3.0
+texture = ExtResource("5_s0nk1")
+texture_mode = 1
+
+[node name="pulled_object" parent="." unique_id=1248254879 instance=ExtResource("6_ms0oa")]

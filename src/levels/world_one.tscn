@@ -1543,12 +1543,12 @@ position = Vector2(1541, 205)
 scale = Vector2(0.11317635, 0.10093459)
 texture = ExtResource("5_s0iqr")
 
+[node name="exit" parent="." unique_id=1032927429 instance=ExtResource("12_lh2x3")]
+position = Vector2(1971, 295)
+
 [node name="Player" parent="." unique_id=1678218356 instance=ExtResource("2_4xf3m")]
 position = Vector2(126, 395)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=994486724]
 position = Vector2(0, 1)
 zoom = Vector2(3.2, 3.2)
-
-[node name="exit" parent="." unique_id=1032927429 instance=ExtResource("12_lh2x3")]
-position = Vector2(1971, 295)
