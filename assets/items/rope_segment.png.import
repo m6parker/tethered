@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kod68otlks61"
-path="res://.godot/imported/fuel.png-fd14ee4f2e20f754397638c72b215fc0.ctex"
+uid="uid://l14hnt7hnycx"
+path="res://.godot/imported/rope_segment.png-d1dcb20a6ce880273fe24b601ea89c92.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/items/fuel.png"
-dest_files=["res://.godot/imported/fuel.png-fd14ee4f2e20f754397638c72b215fc0.ctex"]
+source_file="res://assets/items/rope_segment.png"
+dest_files=["res://.godot/imported/rope_segment.png-d1dcb20a6ce880273fe24b601ea89c92.ctex"]
 
 [params]
 
