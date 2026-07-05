@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bygde26feifu0" path="res://assets/tilesets/panel (6).png" id="7_ypi36"]
 [ext_resource type="Texture2D" uid="uid://c4i1etku1vjca" path="res://assets/tilesets/panel (7).png" id="8_l8hdd"]
 [ext_resource type="Texture2D" uid="uid://2hqw434734ub" path="res://assets/tilesets/panel (3).png" id="9_l4oql"]
+[ext_resource type="PackedScene" uid="uid://c36ecgf6g8441" path="res://src/common/exit.tscn" id="12_lh2x3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4xf3m"]
 texture = ExtResource("1_4xf3m")
@@ -1544,3 +1545,6 @@ position = Vector2(126, 395)
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=994486724]
 position = Vector2(0, 1)
 zoom = Vector2(3.2, 3.2)
+
+[node name="exit" parent="." unique_id=1032927429 instance=ExtResource("12_lh2x3")]
+position = Vector2(1971, 295)

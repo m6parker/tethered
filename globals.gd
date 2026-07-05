@@ -1,5 +1,6 @@
 extends Node
 
+
 var oxygen: int = 10
 var fuel: int = 10
 var health: int = 100
@@ -8,10 +9,14 @@ var current_level: String
 signal oxygen_changed 
 signal health_changed
 signal fuel_changed
+signal level_finished
+@onready var complete_level_scene: PackedScene = preload("res://src/common/level_complete.tscn")
+var complete_level_instance: CanvasLayer = null
 
 func _ready():
 	oxygen_changed.connect(_on_oxygen_changed)
 	health_changed.connect(_on_health_changed)
+	level_finished.connect(complete_level)
 
 func add_oxygen(pack_size: int):
 	if oxygen < 100:
@@ -75,3 +80,10 @@ func _on_health_changed():
 func _on_fuel_changed():
 	# todo - sound effects
 	pass
+
+func complete_level() -> void:
+	print("show menu")
+	get_tree().paused = true
+	if complete_level_instance == null:
+		complete_level_instance = complete_level_scene.instantiate()
+		add_child(complete_level_instance)
