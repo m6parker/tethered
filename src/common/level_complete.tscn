@@ -44,8 +44,13 @@ text = "level complete!"
 layout_mode = 2
 text = "next level"
 
+[node name="replay_button" type="Button" parent="Panel/VBoxContainer" unique_id=1678411741]
+layout_mode = 2
+text = "play again"
+
 [node name="quit_button" type="Button" parent="Panel/VBoxContainer" unique_id=889584356]
 layout_mode = 2
 text = "quit"
 
+[connection signal="pressed" from="Panel/VBoxContainer/replay_button" to="." method="_on_replay_button_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/quit_button" to="." method="_on_quit_button_pressed"]

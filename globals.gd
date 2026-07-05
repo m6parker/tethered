@@ -58,6 +58,9 @@ func reset_game():
 	oxygen = 50
 	health = 100
 	fuel = 50
+	complete_level_instance.hide()
+	complete_level_instance = null
+	get_tree().paused = false
 	get_tree().reload_current_scene()
 	
 func collect_item(item_type: String) -> void:

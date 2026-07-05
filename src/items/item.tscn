@@ -6,6 +6,15 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j3mkc"]
 size = Vector2(32, 32)
 
+[sub_resource type="Gradient" id="Gradient_lh2x3"]
+offsets = PackedFloat32Array(0, 0.6373874)
+colors = PackedColorArray(0.9477611, 0.9477611, 0.9477611, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fhx2i"]
+gradient = SubResource("Gradient_lh2x3")
+fill = 1
+fill_from = Vector2(0.5, 0.52136755)
+
 [node name="item" type="Area2D" unique_id=1862983925]
 script = ExtResource("1_j3mkc")
 
@@ -17,5 +26,11 @@ texture_filter = 1
 position = Vector2(-9.536743e-07, 1.000001)
 scale = Vector2(0.057870876, 0.057870876)
 texture = ExtResource("2_fhx2i")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=761240050]
+position = Vector2(3, 1)
+scale = Vector2(1.5625, 1.5625)
+color = Color(0.24760884, 0.56065977, 0.81611603, 1)
+texture = SubResource("GradientTexture2D_fhx2i")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
