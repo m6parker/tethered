@@ -1,10 +1,11 @@
 extends Node
 
 
-var oxygen: int = 10
-var fuel: int = 10
+var oxygen: int = 50
+var fuel: int = 50
 var health: int = 100
 var thrust_power = 400.0
+var keys: int = 0
 var current_level: String
 signal oxygen_changed 
 signal health_changed
@@ -58,8 +59,10 @@ func reset_game():
 	oxygen = 50
 	health = 100
 	fuel = 50
-	complete_level_instance.hide()
-	complete_level_instance = null
+	keys = 0
+	if complete_level_instance:
+		complete_level_instance.hide()
+		complete_level_instance = null
 	get_tree().paused = false
 	get_tree().reload_current_scene()
 	
@@ -70,6 +73,8 @@ func collect_item(item_type: String) -> void:
 		add_fuel(10)
 	elif item_type == "health":
 		add_health(5)
+	elif item_type == "key":
+		keys = keys +1
 
 # automatically called
 func _on_oxygen_changed():

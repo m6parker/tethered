@@ -331,6 +331,10 @@ item_type = "fuel"
 position = Vector2(386, 322)
 item_type = "fuel"
 
+[node name="key" parent="map/items" unique_id=450419832 instance=ExtResource("2_1ycqk")]
+position = Vector2(1311, 510)
+item_type = "key"
+
 [node name="panels" type="Node2D" parent="map" unique_id=1494234821]
 
 [node name="Panel(1)" type="Sprite2D" parent="map/panels" unique_id=1995878444]

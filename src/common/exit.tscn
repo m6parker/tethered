@@ -1,13 +1,38 @@
 [gd_scene format=3 uid="uid://c36ecgf6g8441"]
 
 [ext_resource type="Script" uid="uid://b3722dxu2ohxp" path="res://src/common/exit.gd" id="1_jc20b"]
+[ext_resource type="Texture2D" uid="uid://dcq4fjv4w4ojj" path="res://assets/tilesets/cobblestone_tile.png" id="2_7p06u"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n2fi5"]
+texture = ExtResource("2_7p06u")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSet" id="TileSet_5oj5e"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_n2fi5")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_euh7x"]
-size = Vector2(20, 146)
+size = Vector2(39.25, 161)
 
-[node name="exit" type="Area2D" unique_id=374691288]
+[node name="exit" type="Node2D" unique_id=729930582 node_paths=PackedStringArray("wall_tilemap_layer")]
 script = ExtResource("1_jc20b")
+wall_tilemap_layer = NodePath("wall")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=31019916]
-position = Vector2(0, -6)
+[node name="wall" type="TileMapLayer" parent="." unique_id=1298771468]
+tile_map_data = PackedByteArray(0, 0, 0, 0, 253, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 254, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+tile_set = SubResource("TileSet_5oj5e")
+
+[node name="doorway" type="Area2D" parent="." unique_id=1513150587]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="doorway" unique_id=31019916]
+position = Vector2(52, -16)
+shape = SubResource("RectangleShape2D_euh7x")
+
+[node name="interaction_zone" type="Area2D" parent="." unique_id=1449100291]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interaction_zone" unique_id=1106489324]
+position = Vector2(-19.625, -17)
 shape = SubResource("RectangleShape2D_euh7x")
