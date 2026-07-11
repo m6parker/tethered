@@ -1,38 +1,72 @@
 [gd_scene format=3 uid="uid://c36ecgf6g8441"]
 
 [ext_resource type="Script" uid="uid://b3722dxu2ohxp" path="res://src/common/exit.gd" id="1_jc20b"]
-[ext_resource type="Texture2D" uid="uid://dcq4fjv4w4ojj" path="res://assets/tilesets/cobblestone_tile.png" id="2_7p06u"]
+[ext_resource type="Texture2D" uid="uid://dulegoer0826q" path="res://assets/decor/door_animation.png" id="2_7p06u"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n2fi5"]
-texture = ExtResource("2_7p06u")
-texture_region_size = Vector2i(32, 32)
-0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_n2fi5"]
+atlas = ExtResource("2_7p06u")
+region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="TileSet" id="TileSet_5oj5e"]
-tile_size = Vector2i(32, 32)
-physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_n2fi5")
+[sub_resource type="AtlasTexture" id="AtlasTexture_5oj5e"]
+atlas = ExtResource("2_7p06u")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5fqqj"]
+atlas = ExtResource("2_7p06u")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0b3kt"]
+atlas = ExtResource("2_7p06u")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v3v7b"]
+atlas = ExtResource("2_7p06u")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oitrs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n2fi5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5oj5e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5fqqj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0b3kt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v3v7b")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_euh7x"]
-size = Vector2(39.25, 161)
+size = Vector2(70, 72)
 
-[node name="exit" type="Node2D" unique_id=729930582 node_paths=PackedStringArray("wall_tilemap_layer")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7p06u"]
+size = Vector2(18, 48)
+
+[node name="exit" type="Node2D" unique_id=729930582]
 script = ExtResource("1_jc20b")
-wall_tilemap_layer = NodePath("wall")
 
-[node name="wall" type="TileMapLayer" parent="." unique_id=1298771468]
-tile_map_data = PackedByteArray(0, 0, 0, 0, 253, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 254, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-tile_set = SubResource("TileSet_5oj5e")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=871528679]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_oitrs")
 
-[node name="doorway" type="Area2D" parent="." unique_id=1513150587]
+[node name="interaction_zone" type="Area2D" parent="." unique_id=1513150587]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="doorway" unique_id=31019916]
-position = Vector2(52, -16)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interaction_zone" unique_id=31019916]
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_euh7x")
 
-[node name="interaction_zone" type="Area2D" parent="." unique_id=1449100291]
+[node name="doorway" type="Area2D" parent="." unique_id=1449100291]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="interaction_zone" unique_id=1106489324]
-position = Vector2(-19.625, -17)
-shape = SubResource("RectangleShape2D_euh7x")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="doorway" unique_id=108478284]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_7p06u")
