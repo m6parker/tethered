@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmh1qtph7epm5"
-path="res://.godot/imported/side_scroll_one.png-4df15c9b2972a375acd68d3704652aa3.ctex"
+uid="uid://dulegoer0826q"
+path="res://.godot/imported/door_animation.png-c93eb62d574b09e19ad389bf4e2dd516.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilesets/side_scroll_one.png"
-dest_files=["res://.godot/imported/side_scroll_one.png-4df15c9b2972a375acd68d3704652aa3.ctex"]
+source_file="res://assets/decor/door_animation.png"
+dest_files=["res://.godot/imported/door_animation.png-c93eb62d574b09e19ad389bf4e2dd516.ctex"]
 
 [params]
 
