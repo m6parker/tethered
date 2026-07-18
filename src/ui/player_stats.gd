@@ -1,8 +1,8 @@
 extends CanvasLayer
 
-@onready var oxygen_label: Label = $oxygen_amount
-@onready var health_label: Label = $health_amount
-@onready var fuel_label: Label = $fuel_amount
+@onready var oxygen_label: Label = $container/oxygen_amount
+@onready var health_label: Label = $container/health_amount
+@onready var fuel_label: Label = $container/fuel_amount
 
 func _ready() -> void:
 	Globals.oxygen_changed.connect(_on_oxygen_changed)

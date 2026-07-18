@@ -1,50 +1,48 @@
 [gd_scene format=3 uid="uid://b3ncs03taxxl7"]
 
 [ext_resource type="Script" uid="uid://cg74ryso3q63a" path="res://src/ui/player_stats.gd" id="1_ogo65"]
+[ext_resource type="FontFile" uid="uid://bbby8dulic464" path="res://assets/ui/pixel_font.ttf" id="2_tocsd"]
 
 [node name="player_stats" type="CanvasLayer" unique_id=1883993902]
 script = ExtResource("1_ogo65")
 
-[node name="Label" type="Label" parent="." unique_id=1060748912]
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="container" type="GridContainer" parent="." unique_id=1713992933]
+offset_right = 386.0
+offset_bottom = 434.0
+columns = 2
+
+[node name="Label" type="Label" parent="container" unique_id=1060748912]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_tocsd")
 theme_override_font_sizes/font_size = 50
 text = "oxygen:"
 
-[node name="oxygen_amount" type="Label" parent="." unique_id=1399171199]
-offset_left = 196.0
-offset_top = 2.0
-offset_right = 282.0
-offset_bottom = 71.0
+[node name="oxygen_amount" type="Label" parent="container" unique_id=1399171199]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_tocsd")
 theme_override_font_sizes/font_size = 50
 text = "100"
 
-[node name="Label2" type="Label" parent="." unique_id=1527999639]
-offset_top = 70.0
-offset_right = 187.0
-offset_bottom = 139.0
+[node name="Label2" type="Label" parent="container" unique_id=1527999639]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_tocsd")
 theme_override_font_sizes/font_size = 50
 text = "health:"
 
-[node name="health_amount" type="Label" parent="." unique_id=1266247191]
-offset_left = 196.0
-offset_top = 72.0
-offset_right = 282.0
-offset_bottom = 141.0
+[node name="health_amount" type="Label" parent="container" unique_id=1266247191]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_tocsd")
 theme_override_font_sizes/font_size = 50
 text = "100"
 
-[node name="Label3" type="Label" parent="." unique_id=1002095310]
-offset_top = 132.0
-offset_right = 187.0
-offset_bottom = 201.0
+[node name="Label3" type="Label" parent="container" unique_id=1002095310]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_tocsd")
 theme_override_font_sizes/font_size = 50
 text = "fuel:"
 
-[node name="fuel_amount" type="Label" parent="." unique_id=1385438505]
-offset_left = 196.0
-offset_top = 134.0
-offset_right = 282.0
-offset_bottom = 203.0
+[node name="fuel_amount" type="Label" parent="container" unique_id=1385438505]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_tocsd")
 theme_override_font_sizes/font_size = 50
 text = "100"

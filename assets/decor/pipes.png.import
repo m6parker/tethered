@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcq4fjv4w4ojj"
-path="res://.godot/imported/cobblestone_tile.png-bb5407114fe7371dfbbcc7f2f66c0c57.ctex"
+uid="uid://cf077nexoc3rj"
+path="res://.godot/imported/pipes.png-93deb3c9aa8d44e05d5285f288684776.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilesets/cobblestone_tile.png"
-dest_files=["res://.godot/imported/cobblestone_tile.png-bb5407114fe7371dfbbcc7f2f66c0c57.ctex"]
+source_file="res://assets/decor/pipes.png"
+dest_files=["res://.godot/imported/pipes.png-93deb3c9aa8d44e05d5285f288684776.ctex"]
 
 [params]
 
