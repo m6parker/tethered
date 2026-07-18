@@ -120,4 +120,4 @@ texture = ExtResource("5_s0nk1")
 texture_mode = 1
 
 [node name="pulled_object" parent="." unique_id=1248254879 instance=ExtResource("6_ms0oa")]
-position = Vector2(-41, 0)
+position = Vector2(-40, 0)

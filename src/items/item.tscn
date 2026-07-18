@@ -24,7 +24,6 @@ shape = SubResource("RectangleShape2D_j3mkc")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=250352837]
 texture_filter = 1
 position = Vector2(-9.536743e-07, 1.000001)
-scale = Vector2(0.057870876, 0.057870876)
 texture = ExtResource("2_fhx2i")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=761240050]

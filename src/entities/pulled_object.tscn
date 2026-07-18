@@ -8,8 +8,7 @@ radius = 15.0
 [node name="pulled_object" type="CharacterBody2D" unique_id=881240779]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1447795933]
-position = Vector2(2.9999695, -0.99998474)
-scale = Vector2(0.13605443, 0.13605443)
+texture_filter = 1
 texture = ExtResource("1_y0coh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=293010786]
