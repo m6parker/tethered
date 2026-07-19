@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dcyjqy6yowgja" path="res://src/entities/player.tscn" id="2_4xf3m"]
 [ext_resource type="Texture2D" uid="uid://dbnf0eo3l4fm5" path="res://assets/tilesets/space_tile.png" id="2_bw83h"]
 [ext_resource type="Texture2D" uid="uid://bl34yo3ixunha" path="res://assets/tilesets/space_station_tileset.png" id="3_3nuca"]
+[ext_resource type="Texture2D" uid="uid://cnh10waeljf6i" path="res://assets/tilesets/space_station_decor_tileset.png" id="4_01hqk"]
 [ext_resource type="Texture2D" uid="uid://c27wsm6ais8pp" path="res://assets/tilesets/pipes.png" id="4_bw83h"]
 [ext_resource type="PackedScene" uid="uid://c36ecgf6g8441" path="res://src/common/exit.tscn" id="12_lh2x3"]
 
@@ -460,6 +461,32 @@ texture_region_size = Vector2i(32, 32)
 5:2/0/terrains_peering_bit/left_side = 1
 5:2/0/terrains_peering_bit/top_side = 1
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x61wf"]
+texture = ExtResource("4_01hqk")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_01hqk"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
@@ -473,6 +500,26 @@ terrain_set_1/terrain_1/name = "pipes_green"
 terrain_set_1/terrain_1/color = Color(8.1822276e-07, 0.7216832, 0.3299894, 1)
 sources/1 = SubResource("TileSetAtlasSource_bw83h")
 sources/2 = SubResource("TileSetAtlasSource_01hqk")
+sources/3 = SubResource("TileSetAtlasSource_x61wf")
+
+[sub_resource type="Gradient" id="Gradient_s62aw"]
+offsets = PackedFloat32Array(0.0945946, 0.6779279)
+colors = PackedColorArray(0.88701814, 0.88701814, 0.88701814, 1, 0.042792793, 0.042792793, 0.042792793, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_s0iqr"]
+gradient = SubResource("Gradient_s62aw")
+fill = 1
+fill_from = Vector2(0.51282054, 0.47863248)
+
+[sub_resource type="Gradient" id="Gradient_lh2x3"]
+offsets = PackedFloat32Array(0, 0.08558559, 0.5472973)
+colors = PackedColorArray(1, 1, 1, 1, 0.81120944, 0.81120944, 0.81120944, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ypi36"]
+gradient = SubResource("Gradient_lh2x3")
+fill = 2
+fill_from = Vector2(0.50427353, 0)
+fill_to = Vector2(0.52991456, 0.94871795)
 
 [sub_resource type="TileSet" id="TileSet_1ycqk"]
 tile_size = Vector2i(32, 32)
@@ -750,8 +797,41 @@ tile_set = SubResource("TileSet_01hqk")
 
 [node name="decor_front" type="TileMapLayer" parent="map" unique_id=11747513]
 z_index = 1
-tile_map_data = PackedByteArray("AAAKAAUAAQAHAAMAAAAKAAYAAQAFAAQAAAAKAAcAAQAIAAMAAAAKAAgAAQAIAAQAAAAKAAkAAQAHAAQAAAALAAUAAQAEAAQAAAAMAAUAAQAGAAQAAAAKAP3/AQAEAAUAAAAMAP3/AQAEAAUAAAAMAA0AAQAIAAYAAAANAA0AAQAIAAYAAAAOAA0AAQAIAAYAAAAMABIAAQAIAAYAAAANABIAAQAIAAYAAAAOABIAAQAIAAYAAAAMABcAAQAIAAYAAAANABcAAQAIAAYAAAAOABcAAQAIAAYAAAAMABwAAQAIAAYAAAANABwAAQAIAAYAAAAOABwAAQAIAAYAAAAEAB8AAQAIAAYAAAADAB8AAQAIAAYAAAACAB8AAQAIAAYAAAACABoAAQAIAAYAAAADABoAAQAIAAYAAAAEABoAAQAIAAYAAAACABUAAQAIAAYAAAADABUAAQAIAAYAAAAEABUAAQAIAAYAAAACABAAAQAIAAYAAAADABAAAQAIAAYAAAAEABAAAQAIAAYAAAACAAsAAQAIAAYAAAADAAsAAQAIAAYAAAAEAAsAAQAIAAYAAAASAAkAAQAEAAQAAAASAAgAAQAEAAQAAAASAAcAAQAEAAQAAAASAAYAAQAEAAQAAAASAAUAAQAEAAQAAAANAAYAAQAEAAUAAAANAAkAAQAEAAUAAAANAAcAAQAEAAQAAAANAAgAAQAEAAQAAAAEADYAAQANAAYAAAALADUAAQAMAAUAAAALADYAAQAMAAYAAAANADUAAQANAAQAAAANADYAAQANAAQAAAAMADUAAQANAAUAAAAMADYAAQANAAQAAAAFADYAAQAKAAQAAAADADYAAQANAAMAAAACADYAAQANAAMAAAAMACwAAQAIAAYAAAANACwAAQAIAAYAAAAFADUAAQAKAAMAAAAHADUAAQAKAAMAAAAHADYAAQAKAAQAAAA=")
+tile_map_data = PackedByteArray("AAAKAAUAAQAHAAMAAAAKAAYAAQAFAAQAAAAKAAcAAQAIAAMAAAAKAAgAAQAIAAQAAAAKAAkAAQAHAAQAAAALAAUAAQAEAAQAAAAMAAUAAQAGAAQAAAAKAP3/AQAEAAUAAAAMAP3/AQAEAAUAAAAMAA0AAQAIAAYAAAANAA0AAQAIAAYAAAAOAA0AAQAIAAYAAAAMABIAAQAIAAYAAAANABIAAQAIAAYAAAAOABIAAQAIAAYAAAAMABcAAQAIAAYAAAANABcAAQAIAAYAAAAOABcAAQAIAAYAAAAMABwAAQAIAAYAAAANABwAAQAIAAYAAAAOABwAAQAIAAYAAAAEAB8AAQAIAAYAAAADAB8AAQAIAAYAAAACAB8AAQAIAAYAAAACABoAAQAIAAYAAAADABoAAQAIAAYAAAAEABoAAQAIAAYAAAACABUAAQAIAAYAAAADABUAAQAIAAYAAAAEABUAAQAIAAYAAAACABAAAQAIAAYAAAADABAAAQAIAAYAAAAEABAAAQAIAAYAAAACAAsAAQAIAAYAAAADAAsAAQAIAAYAAAAEAAsAAQAIAAYAAAASAAkAAQAEAAQAAAASAAgAAQAEAAQAAAASAAcAAQAEAAQAAAASAAYAAQAEAAQAAAASAAUAAQAEAAQAAAANAAYAAQAEAAUAAAANAAkAAQAEAAUAAAANAAcAAQAEAAQAAAANAAgAAQAEAAQAAAAEADYAAQANAAYAAAALADUAAQAMAAUAAAALADYAAQAMAAYAAAANADUAAQANAAQAAAANADYAAQANAAQAAAAMADUAAQANAAUAAAAMADYAAQANAAQAAAAFADYAAQAKAAQAAAADADYAAQANAAMAAAACADYAAQANAAMAAAAMACwAAQAIAAYAAAANACwAAQAIAAYAAAAFADUAAQAKAAMAAAAHADUAAQAKAAMAAAAHADYAAQAKAAQAAAACAA4AAwACAAIAAAADAA4AAwADAAIAAAACABMAAwAAAAIAAAADABMAAwABAAIAAAACABgAAwAAAAIAAAADABgAAwABAAIAAAACAB0AAwAAAAIAAAADAB0AAwABAAIAAAACACIAAwAAAAIAAAADACIAAwABAAIAAAANAB8AAwAAAAMAAAAOAB8AAwABAAMAAAANABoAAwAAAAMAAAAOABoAAwABAAMAAAANABUAAwAAAAMAAAAOABUAAwABAAMAAAANABAAAwAAAAMAAAAOABAAAwABAAMAAAADAAwAAwAAAAAAAAADABEAAwACAAAAAAADABYAAwAAAAAAAAADABsAAwACAAAAAAADACAAAwACAAAAAAANAB0AAwAAAAAAAAANABgAAwACAAAAAAANABMAAwAAAAAAAAANAA4AAwACAAAAAAA=")
 tile_set = SubResource("TileSet_01hqk")
+
+[node name="PointLight2D" type="PointLight2D" parent="map/decor_front" unique_id=537091867]
+visible = false
+color = Color(0.77254903, 0.7411765, 0.4862745, 1)
+texture = SubResource("GradientTexture2D_s0iqr")
+
+[node name="lamp" type="PointLight2D" parent="map/decor_front" unique_id=266543679]
+position = Vector2(112.5, 423.99997)
+scale = Vector2(0.45312503, 1.2500005)
+color = Color(0.9764706, 0.9843137, 0.69803923, 1)
+energy = 0.75
+texture = SubResource("GradientTexture2D_ypi36")
+
+[node name="lamp2" type="PointLight2D" parent="map/decor_front" unique_id=83821585]
+position = Vector2(431.99997, 650.00006)
+scale = Vector2(0.45312503, 1.2500005)
+color = Color(0.9764706, 0.9843137, 0.69803923, 1)
+energy = 0.75
+texture = SubResource("GradientTexture2D_ypi36")
+
+[node name="lamp3" type="PointLight2D" parent="map/decor_front" unique_id=541694352]
+position = Vector2(112.99999, 746.00006)
+scale = Vector2(0.45312503, 1.2500005)
+color = Color(0.9764706, 0.9843137, 0.69803923, 1)
+energy = 0.75
+texture = SubResource("GradientTexture2D_ypi36")
+
+[node name="lamp4" type="PointLight2D" parent="map/decor_front" unique_id=1362651997]
+position = Vector2(432.00003, 970.00006)
+scale = Vector2(0.45312503, 1.2500005)
+color = Color(0.9764706, 0.9843137, 0.69803923, 1)
+energy = 0.75
+texture = SubResource("GradientTexture2D_ypi36")
 
 [node name="items" type="TileMapLayer" parent="map" unique_id=170210139]
 tile_set = SubResource("TileSet_1ycqk")
